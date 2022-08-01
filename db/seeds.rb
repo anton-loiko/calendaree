@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+super_admin_email = ENV['SUPER_ADMIN_EMAIL'].to_s
+super_admin_name = 'Super Admin'
+
+puts 'READ ENV ::::->>>>'
+puts super_admin_email
+
+# User.create email: super_admin_email, name: super_admin_name
