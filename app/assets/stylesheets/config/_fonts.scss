@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Caveat";
+  // src: url("/Caveat/static/Caveat-Bold.ttf");
+  src: url("../../Caveat/static/Caveat-Bold.ttf");
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Caveat";
+  // src: url("/Caveat/static/Caveat-Regular.ttf");
+  src: url("../../Caveat/static/Caveat-Regular.ttf");
+  font-weight: normal;
+  font-display: swap;
+}
+
+// *,
+// *::after,
+// *::before,
+// html,
+// body {
+//   font-family: Caveat, cursive, sans-serif;
+// }
