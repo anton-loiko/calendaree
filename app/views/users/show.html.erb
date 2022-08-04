@@ -1,3 +1,5 @@
+<% provide :page_title, "User information" %>
+
 <p style="color: green"><%= notice %></p>
 
 <%= render partial: 'shared/inner_page_header', locals: { path: users_path, link_name: 'users', title: 'User information' } %>
@@ -5,7 +7,7 @@
 <div>
 
   <div>
-    <%= render partial: 'shared/avatar', locals: { src: @user.avatar, size: 'xl' } %>
+    <%= render partial: 'shared/avatar', locals: { src: @user.avatar, size: 'xl', admin: @user.admin } %>
 
     <strong>
       <%= @user.name %>
@@ -22,6 +24,6 @@
     </p>
   </div>
 
-  <%= link_to "Edit", edit_user_path(@user) ,class: "btn btn--primary" %> |
-  <%= button_to "Destroy", @user, class:"btn btn--light", form: { data: { turbo_method: :delete, turbo_confirm: "You're sure?" } } %>
+  <%= link_to "Edit", edit_user_path(@user), class: "btn btn--primary" %> |
+  <%= button_to "Destroy", @user, class: "btn btn--light", form: { data: { turbo_method: :delete, turbo_confirm: "You're sure?" } } %>
 </div>

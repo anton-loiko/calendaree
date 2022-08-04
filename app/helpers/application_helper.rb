@@ -2,7 +2,21 @@ require 'uri'
 require 'net/http'
 
 module ApplicationHelper
-  def send_to_discord(str)
+  def is_current_nav_link(path)
+    Regexp.new(path.to_s).match?(request.path)
+  end
+
+  def full_title(page_title = '')
+    base_title = 'Calendaree'
+
+    if page_title.present?
+      "#{page_title} | #{base_title}"
+    else
+      base_title
+    end
+  end
+
+  def send_to_discord(str)  # TODO: move to controller
     discord_webhook_id = ENV['DISCORD_WEBHOOK_ID']
     discord_webhook_token = ENV['DISCORD_WEBHOOK_TOKEN']
     discord_webhook_api = ENV['DISCORD_WEBHOOK_API']
