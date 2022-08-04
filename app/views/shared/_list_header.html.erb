@@ -1,0 +1,14 @@
+<div class="list_header">
+
+
+  <h1 class="list_header__title"><%= title %></h1>
+
+  <div class="list_header__actions">
+    <%= link_to action_name,
+                action_path,
+                class: 'btn btn--primary',
+                data: local_assigns[:data].nil? ? {}: local_assigns[:data]
+    %>
+
+  </div>
+</div>

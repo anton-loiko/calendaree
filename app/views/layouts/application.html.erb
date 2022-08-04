@@ -10,7 +10,30 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
+
   <body>
-    <%= yield %>
+    <div class="layout-container">
+      <nav class="nav">
+
+        <ul class="nav__list">
+          <li class="nav__item">
+            <%#= link_to "Dashboard", '/' %>
+            <%= link_to_unless_current("Dashboard", '/', { action: "index" }) %>
+          </li>
+          <li class="nav__item <%='nav__item--active' if current_page?(users_url) %>">
+            <%= link_to_unless_current("Users", { action: "index" }) %>
+          </li>
+        </ul>
+          <div class="nav__item nav__item--logout">
+            <%= link_to "Logout", class: 'nav__item' %>
+          </div>
+
+
+      </nav>
+
+      <main class="container">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

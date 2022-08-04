@@ -22,3 +22,13 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Configuration
+### Env
+```shell
+SUPER_ADMIN_EMAIL="example@gmail.com"
+ALLOWED_EMAIL_DOMAIN="gmail.com"
+G00GLE_API_KEY="G00GLE_API_KEY"
+G00GLE_API_SECRET="G00GLE_API_SECRET"
+```
+

@@ -10,12 +10,16 @@
 
 // Components
 @import "components/btn";
+@import "components/avatar";
 @import "components/error_message";
 @import "components/form";
 @import "components/visually_hidden";
-@import "components/quote";
+@import "components/user_row";
 @import "components/turbo_progress_bar";
 
 // Layouts
 @import "layouts/container";
-@import "layouts/header";
+@import "layouts/layout_container";
+@import "layouts/nav";
+@import "layouts/inner_page_header";
+@import "layouts/list_header";

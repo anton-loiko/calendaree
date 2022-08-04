@@ -1,0 +1,8 @@
+<div class="avatar avatar--<%= size %><%= ' avatar--admin' if local_assigns[:admin] %> ">
+
+  <% if src %>
+    <img class="avatar__img>" src="<%= src %>" alt="user avatar">
+    <% else %>
+    <div class="avatar__default"></div>
+    <% end %>
+</div>

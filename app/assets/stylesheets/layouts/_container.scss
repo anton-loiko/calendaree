@@ -5,6 +5,8 @@
   margin-left: auto;
   margin-right: auto;
 
+  min-width: 0;
+
   @include media(tabletAndUp) {
     padding-right: var(--space-m);
     padding-left: var(--space-m);

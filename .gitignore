@@ -35,5 +35,9 @@
 
 /node_modules
 
+# IDEs
+.idea/
+.vscode/
+
 # Environment Variables
 /config/local_env.yml

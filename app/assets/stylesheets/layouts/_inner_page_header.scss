@@ -1,0 +1,20 @@
+.inner-page-header {
+  width: 100%;
+  padding-top: var(--space-m);
+  margin-bottom: var(--space-l);
+
+  &__back {
+    display: inline-block;
+    margin-bottom: var(--space-s);
+  }
+
+  &__title {
+    color: var(--color-text-header);
+  }
+
+  @include media(tabletAndUp) {
+    padding-top: var(--space-xl);
+    margin-bottom: var(--space-xxl);
+  }
+}
+

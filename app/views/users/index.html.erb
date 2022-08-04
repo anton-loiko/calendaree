@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render partial: 'shared/list_header',
+
+           locals: { title: "Users",
+                     action_name: "Add user",
+                     action_path: new_user_path,
+                     data: { turbo_method: :get, turbo_confirm: "You're sure?" }
+           } %>
+
+<%= render @users %>
+

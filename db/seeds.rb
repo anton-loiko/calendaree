@@ -12,4 +12,4 @@ super_admin_name = 'Super Admin'
 puts 'READ ENV ::::->>>>'
 puts super_admin_email
 
-# User.create email: super_admin_email, name: super_admin_name
+User.create email: super_admin_email, name: super_admin_name, admin: true, work_time: 8, remaining_days: 0

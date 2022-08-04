@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render partial: 'shared/inner_page_header', locals: { path: users_path, link_name: 'users', title: 'User information' } %>
+
+<div>
+
+  <div>
+    <%= render partial: 'shared/avatar', locals: { src: @user.avatar, size: 'xl' } %>
+
+    <strong>
+      <%= @user.name %>
+    </strong>
+
+    <strong>
+      <%= @user.email %>
+    </strong>
+
+
+    <p>
+      <strong>Remaining days:</strong>
+      <%= @user.remaining_days %>
+    </p>
+  </div>
+
+  <%= link_to "Edit", edit_user_path(@user) ,class: "btn btn--primary" %> |
+  <%= button_to "Destroy", @user, class:"btn btn--light", form: { data: { turbo_method: :delete, turbo_confirm: "You're sure?" } } %>
+</div>
