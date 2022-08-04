@@ -28,7 +28,11 @@ Things you may want to cover:
 ```shell
 SUPER_ADMIN_EMAIL="example@gmail.com"
 ALLOWED_EMAIL_DOMAIN="gmail.com"
-G00GLE_API_KEY="G00GLE_API_KEY"
-G00GLE_API_SECRET="G00GLE_API_SECRET"
+G00GLE_OAUTH_CLIENT_ID="<id>"
+G00GLE_OAUTH_CLIENT_SECRET="<secret>"
+
+DISCORD_WEBHOOK_ID: "<id>"
+DISCORD_WEBHOOK_TOKEN: "<token>"
+DISCORD_WEBHOOK_API: "https://discord.com/api/webhooks"
 ```
 
