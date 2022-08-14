@@ -1,0 +1,26 @@
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<div id="g_id_onload"
+     data-client_id="<%= ENV['G00GLE_OAUTH_CLIENT_ID'] %>"
+     data-login_uri="<%= auth_index_url %>"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-auto_prompt="<%= user_signed_in? ? "false" : "true" %>"
+     data-authenticity_token="<%= form_authenticity_token %>"
+     data-itp_support="true"
+
+>
+<!--  data-skip_prompt_cookie="auth_session"-->
+  <!--     data-auto_select="true"-->
+  <!--     data-auto_prompt="false"-->
+</div>
+
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-size="large"
+     data-theme="outline"
+     data-text="continue_with"
+     data-shape="rectangular"
+     data-logo_alignment="left">
+</div>
+

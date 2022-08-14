@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get '/', to: redirect('/users') # TODO: change to redirect('/dashboard')
-  # '/signup' 'signup#index'
+  get '/', to: redirect('/users'), as: 'root' # TODO: change to redirect('/dashboard')
+
+  resources :auth, only: %i[index create]
+  get '/logout', to: 'auth#logout'
 
   resources :users
-  resources :signup, only: %i[index]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,0 +1,48 @@
+<div class="row row--column" data-controller="users_form_new">
+  <% if user.errors.any? %>
+    <div class="error-message">
+      <%= user.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <%= simple_form_for user, html: { class: "form users-form-new" } do |f| %>
+    <div class="users-form-new__fields">
+      <%= f.input :email, input_html: { autofocus: true } %>
+      <%= f.input :name, label: "Full name" %>
+      <%= f.input :remaining_days %>
+      <%= f.input :work_time, as: :boolean, inline_label: 'Full-time', checked_value: 8 %>
+      <%= f.input :work_time, label: false do %>
+        <%= f.select :work_time, work_times.map { |r| [r == 1 ? "#{r} hour" : "#{r} hours", r] } %>
+      <% end %>
+    </div>
+
+    <div class="users-form-new__info">
+      <div class="users-form-new__info-list-wrapper">
+        <h4 class="users-form-new__info-title">
+          <i class="info"></i> About validation
+        </h4>
+
+        <dl class="users-form-new__info-list">
+          <dt>Full name:</dt>
+          <dd>Optional.</dd>
+          <dd>This name will be overwritten
+            <br>
+            when the user first logs on to the platform.
+            <br>
+            The name will be taken from his Google profile
+          </dd>
+
+          <dt>Email:</dt>
+          <dd>
+            Mast be only with the domain <b><%= @domain %></b>
+          </dd>
+        </dl>
+      </div>
+
+      <div class="users-form-new__actions">
+        <%= link_to "Cancel", users_path, class: "btn btn--light" %>
+        <%= f.submit class: "btn btn--secondary--outline" %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -2,7 +2,7 @@ require 'uri'
 require 'net/http'
 
 module ApplicationHelper
-  def is_current_nav_link(path)
+  def current_nav_link(path)
     Regexp.new(path.to_s).match?(request.path)
   end
 
@@ -16,7 +16,8 @@ module ApplicationHelper
     end
   end
 
-  def send_to_discord(str)  # TODO: move to controller
+  def send_to_discord(str)
+    # TODO: move to controller
     discord_webhook_id = ENV['DISCORD_WEBHOOK_ID']
     discord_webhook_token = ENV['DISCORD_WEBHOOK_TOKEN']
     discord_webhook_api = ENV['DISCORD_WEBHOOK_API']

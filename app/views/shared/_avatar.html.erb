@@ -1,8 +1,10 @@
-<div class="avatar avatar--<%= size %><%= ' avatar--admin' if local_assigns[:admin] %> ">
+<div
+  class="avatar avatar--<%= local_assigns[:size].nil? ? 'm' : local_assigns[:size] %><%= ' avatar--admin' if local_assigns[:admin] %>"
+>
 
-  <% if src %>
-    <img class="avatar__img>" src="<%= src %>" alt="user avatar">
-    <% else %>
+  <% if !local_assigns[:src].nil? %>
+    <img class="avatar__img" src="<%= local_assigns[:src] %>" alt="user avatar" referrerpolicy="no-referrer">
+  <% else %>
     <div class="avatar__default"></div>
-    <% end %>
+  <% end %>
 </div>

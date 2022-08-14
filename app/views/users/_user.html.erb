@@ -1,20 +1,22 @@
+<%= link_to user,
+            id: dom_id(user),
+            class: 'row row--focusable',
+            data: { turbo_frame: "_top" } do %>
 
-
-
-  <%= link_to user, id: dom_id(user), class: 'user-row'  do %>
+  <div class="row__inner">
     <%= render partial: 'shared/avatar', locals: { src: user.avatar, size: 'm', admin: user.admin } %>
 
-    <strong>
-      <%= user.name %>
-    </strong>
+    <% if user.name.present? %>
+      <span>
+        <%= user.name %>
+      </span>
+    <% end %>
 
-    <strong>
+    <span>
       <%= user.email %>
-    </strong>
+    </span>
 
-
-    <p>
-      <strong>Remaining days:</strong>
-      <%= user.remaining_days %>
-    </p>
-  <% end %>
+    <span>Unapproved applications: <b>0</b></span>
+  </div>
+  <%#= user.remaining_days %>
+<% end %>

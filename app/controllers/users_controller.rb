@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  include UsersHelper
+
+  before_action :require_authentication
   before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users
@@ -11,25 +14,24 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = User.new({ remaining_days: 0 })
+    @domain = ENV['ALLOWED_EMAIL_DOMAIN']
   end
 
   # GET /users/1/edit
-  def edit
-    # send_to_discord(@user.email)
-  end
+  def edit; end
 
   # POST /users
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-
-        format.html { redirect_to user_url(@user), notice: 'User was successfully created.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
+    if @user.save
+      respond_to do |format|
+        format.html { redirect_to users_path, notice: 'User was successfully created.' }
+        format.turbo_stream
       end
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -37,7 +39,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: 'User was successfully updated.' }
+        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -49,8 +51,10 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.turbo_stream
     end
+
+    redirect_to users_path
   end
 
   private

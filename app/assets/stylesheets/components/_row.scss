@@ -1,0 +1,53 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-s);
+  color: var(--color-text-body);
+
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-small);
+  margin-bottom: var(--space-m);
+  padding: var(--space-xs);
+
+
+  &--focusable {
+    &:hover, &:focus {
+      background-color: var(--color-glint);
+      color: var(--color-white);
+    }
+  }
+
+  &--column {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  &__actions {
+    display: flex;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    gap: var(--space-xs);
+  }
+
+  &__inner {
+    display: flex;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: var(--space-m);
+  }
+
+
+  @include media(tabletAndUp) {
+    gap: var(--space-m);
+    padding: var(--space-xs) var(--space-m);
+
+    &__inner {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}

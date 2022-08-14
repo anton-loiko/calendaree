@@ -13,20 +13,7 @@
 
   <body>
     <div class="layout-container">
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <%= link_to_unless_current("Dashboard", '/', { action: "index" }) %>
-          </li>
-          <li class="nav__item <%='nav__item--active' if is_current_nav_link(users_path)  %>">
-            <%#= link_to_unless_current("Users", { controller: "users", action: "index" }) %>
-            <%= link_to_unless_current("Users", users_path) %>
-          </li>
-        </ul>
-          <div class="nav__item nav__item--logout">
-            <%= link_to "Logout", signup_index_path, class: 'nav__item' %>
-          </div>
-      </nav>
+      <%= render 'shared/nav' %>
 
       <main class="container">
         <%= yield %>

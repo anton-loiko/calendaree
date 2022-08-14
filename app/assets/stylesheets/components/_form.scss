@@ -1,12 +1,31 @@
 .form {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-xs);
 
   &__group {
     flex: 1;
+    width: 100%;
   }
 
+  &__select {
+
+  }
+
+  &__label {
+    font-weight: bold;
+    display: inline-flex;
+    margin-bottom: var(--space-xs);
+  }
+
+  &__group select {
+    background-color: transparent;
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &__group select,
   &__input {
     display: block;
     width: 100%;
@@ -24,5 +43,20 @@
     &--invalid {
       border-color: var(--color-primary);
     }
+  }
+
+  &__checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+
+    input {
+      width: unset;
+    }
+  }
+
+
+  @include media(tabletAndUp) {
+    flex-direction: row;
   }
 }

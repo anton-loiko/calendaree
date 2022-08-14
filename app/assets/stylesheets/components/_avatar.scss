@@ -57,6 +57,10 @@
     border-color: var(--color-primary);
     position: relative;
 
+    & > img {
+      opacity: 0.25;
+    }
+
     &::before {
       content: "ADMIN";
       position: absolute;

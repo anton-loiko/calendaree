@@ -26,6 +26,7 @@ Things you may want to cover:
 ## Configuration
 ### Env
 ```shell
+SESSION_SECRET='hmac_secret'
 SUPER_ADMIN_EMAIL="example@gmail.com"
 ALLOWED_EMAIL_DOMAIN="gmail.com"
 G00GLE_OAUTH_CLIENT_ID="<id>"

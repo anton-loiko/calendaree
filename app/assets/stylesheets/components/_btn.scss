@@ -1,3 +1,12 @@
+@mixin pseudo_actions() {
+  &:hover,
+  &:focus,
+  &:focus-within,
+  &:active {
+    @content;
+  }
+}
+
 .btn {
   display: inline-block;
   padding: var(--space-xxs) var(--space-m);
@@ -11,25 +20,19 @@
   outline: none;
   transition: filter 400ms, color 200ms;
 
-  &:hover,
-  &:focus,
-  &:focus-within,
-  &:active {
+  @include pseudo_actions() {
     transition: filter 250ms, color 200ms;
   }
 
   &--primary {
     color: var(--color-white);
     background-image: linear-gradient(
-      to right,
-      var(--color-primary),
-      var(--color-primary-rotate)
+                    to right,
+                    var(--color-primary),
+                    var(--color-primary-rotate)
     );
 
-    &:hover,
-    &:focus,
-    &:focus-within,
-    &:active {
+    @include pseudo_actions() {
       color: var(--color-white);
       filter: saturate(1.4) brightness(115%);
     }
@@ -38,15 +41,12 @@
   &--secondary {
     color: var(--color-white);
     background-image: linear-gradient(
-      to right,
-      var(--color-secondary),
-      var(--color-secondary-rotate)
+                    to right,
+                    var(--color-secondary),
+                    var(--color-secondary-rotate)
     );
 
-    &:hover,
-    &:focus,
-    &:focus-within,
-    &:active {
+    @include pseudo_actions() {
       color: var(--color-white);
       filter: saturate(1.2) brightness(110%);
     }
@@ -56,10 +56,7 @@
     color: var(--color-dark);
     background-color: var(--color-light);
 
-    &:hover,
-    &:focus,
-    &:focus-within,
-    &:active {
+    @include pseudo_actions() {
       color: var(--color-dark);
       filter: brightness(92%);
     }
@@ -70,11 +67,36 @@
     border-color: var(--color-dark);
     background-color: var(--color-dark);
 
-    &:hover,
-    &:focus,
-    &:focus-within,
-    &:active {
+    @include pseudo_actions() {
       color: var(--color-white);
+    }
+  }
+
+  &--primary--outline {
+    color: var(--color-primary);
+    background: none;
+    border: 1px solid var(--color-primary);
+
+    @include pseudo_actions() {
+      color: var(--color-white);
+      filter: saturate(1.4) brightness(115%);
+      background-image: linear-gradient(
+                      to right,
+                      var(--color-primary),
+                      var(--color-primary-rotate)
+      );
+    }
+  }
+
+  &--secondary--outline {
+    color: var(--color-secondary);
+    background: none;
+    border: 1px solid var(--color-secondary);
+
+    @include pseudo_actions() {
+      color: var(--color-white);
+      filter: brightness(110%);
+      background-color:var(--color-secondary);
     }
   }
 }

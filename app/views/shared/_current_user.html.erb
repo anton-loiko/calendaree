@@ -1,0 +1,9 @@
+<% if current_user.present? %>
+  <div class="current_user">
+    <%= render partial: 'shared/avatar', locals: { src: current_user.avatar, admin: current_user.admin, size: 'm' } %>
+
+    <p class="current_user__name">
+      <%= current_user.name %>
+    </p>
+  </div>
+<% end %>

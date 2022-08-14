@@ -1,0 +1,19 @@
+.info {
+  display: inline-flex;
+  border-radius: 50%;
+  border: 1px solid var(--color-text-muted);
+  width: var(--space-l);
+  height: var(--space-l);
+  position: relative;
+  color: var(--color-text-muted);
+
+  &::before {
+    content: "\2139";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size-m);
+    font-weight: normal;
+  }
+}

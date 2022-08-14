@@ -2,7 +2,7 @@
 
 <p style="color: green"><%= notice %></p>
 
-<%= render partial: 'shared/inner_page_header', locals: { path: users_path, link_name: 'users', title: 'User information' } %>
+<%= render partial: 'shared/inner_page_header', locals: { title: 'User information' } %>
 
 <div>
 
@@ -25,5 +25,12 @@
   </div>
 
   <%= link_to "Edit", edit_user_path(@user), class: "btn btn--primary" %> |
-  <%= button_to "Destroy", @user, class: "btn btn--light", form: { data: { turbo_method: :delete, turbo_confirm: "You're sure?" } } %>
+  <%= button_to "Delete",
+                user_path(@user),
+                method: :delete,
+                form: { data: {
+                  turbo_confirm: "Are you sure you are deleting the `#{@user.email}`?",
+                  turbo_frame: "_top"
+                } },
+                class: "btn btn--light" %>
 </div>
