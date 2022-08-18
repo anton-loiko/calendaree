@@ -4,7 +4,7 @@
             data: { turbo_frame: "_top" } do %>
 
   <div class="row__inner">
-    <%= render partial: 'shared/avatar', locals: { src: user.avatar, size: 'm', admin: user.admin } %>
+    <%= render partial: 'shared/avatar', locals: { user: user, src: user.avatar, size: 'm' } %>
 
     <% if user.name.present? %>
       <span>

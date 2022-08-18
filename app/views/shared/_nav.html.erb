@@ -1,17 +1,20 @@
 <% if user_signed_in? %>
   <nav class="nav">
-    <%= render 'shared/current_user' %>
 
     <ul class="nav__list">
       <li class="nav__item">
         <%= link_to_unless_current("Dashboard", root_path, { action: "index" }) %>
       </li>
-      <li class="nav__item <%= 'nav__item--active' if current_nav_link(users_path) %>">
+      <li class="nav__item <%= 'nav__item--active' if current_nav_link?(users_path) %>">
         <%= link_to_unless_current("Users", users_path) %>
       </li>
     </ul>
-    <div class="nav__logout">
-      <%= link_to "Logout", logout_path, class: 'g_id_signout' %>
-    </div>
+
+        <%= render 'shared/current_user' %>
+
+
+<!--    <div class="nav__logout">-->
+      <%#= link_to "Logout", logout_path, class: 'g_id_signout' %>
+<!--    </div>-->
   </nav>
 <% end %>

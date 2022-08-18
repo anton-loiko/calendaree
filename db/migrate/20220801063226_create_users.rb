@@ -5,8 +5,8 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :avatar
       t.string :discord_username
-      t.integer :work_time, default: 8
-      t.integer :remaining_days
+      t.integer :work_time, null: false, default: 8
+      t.float :remaining_days
       t.boolean :admin, null: false, default: false
 
       t.timestamps

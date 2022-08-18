@@ -1,9 +1,21 @@
 <% if current_user.present? %>
   <div class="current_user">
-    <%= render partial: 'shared/avatar', locals: { src: current_user.avatar, admin: current_user.admin, size: 'm' } %>
 
-    <p class="current_user__name">
-      <%= current_user.name %>
-    </p>
+
+
+    <div class="dropdown">
+      <button class="dropdown__button">
+        <%= render partial: 'shared/avatar', locals: { user: current_user, size: 'm' } %>
+      </button>
+      <div class="dropdown__content dropdown__content--right">
+        <p class="dropdown__item dropdown__item--ho-hover current_user__name ">
+          <%= current_user.name  %>
+        </p>
+
+        <%= link_to "Logout", logout_path, class: 'dropdown__item g_id_signout' %>
+      </div>
+    </div>
+
+
   </div>
 <% end %>

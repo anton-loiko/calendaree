@@ -2,7 +2,7 @@ require 'uri'
 require 'net/http'
 
 module ApplicationHelper
-  def current_nav_link(path)
+  def current_nav_link?(path)
     Regexp.new(path.to_s).match?(request.path)
   end
 

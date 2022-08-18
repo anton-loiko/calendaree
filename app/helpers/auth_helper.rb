@@ -1,4 +1,5 @@
 module AuthHelper
+  include UsersHelper
   def user_signed_in?
     decode_session.present?
   end

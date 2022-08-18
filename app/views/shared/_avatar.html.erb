@@ -1,10 +1,14 @@
 <div
-  class="avatar avatar--<%= local_assigns[:size].nil? ? 'm' : local_assigns[:size] %><%= ' avatar--admin' if local_assigns[:admin] %>"
+  class="avatar avatar--<%= local_assigns[:size].nil? ? 'm' : local_assigns[:size] %><%= ' avatar--admin' if user.admin %>"
 >
 
-  <% if !local_assigns[:src].nil? %>
-    <img class="avatar__img" src="<%= local_assigns[:src] %>" alt="user avatar" referrerpolicy="no-referrer">
+  <% if user&.avatar.present? %>
+    <img class="avatar__img" src="<%= user.avatar %>" alt="user avatar" referrerpolicy="no-referrer">
   <% else %>
-    <div class="avatar__default"></div>
+    <div class="avatar__default">
+      <p class="avatar__default-initials">
+        <%= get_user_initials(user.email, name: user.name) %>
+      </p>
+    </div>
   <% end %>
 </div>

@@ -19,8 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_063226) do
     t.string "name"
     t.string "avatar"
     t.string "discord_username"
-    t.integer "work_time", default: 8
-    t.integer "remaining_days"
+    t.integer "work_time", default: 8, null: false
+    t.float "remaining_days"
     t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

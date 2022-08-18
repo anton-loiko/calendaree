@@ -10,13 +10,5 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding: 0 var(--space-xs);
-
-  }
-
-  margin-bottom: var(--space-m);
-
-  @include media(tabletAndUp) {
-    margin-bottom: var(--space-xl);
   }
 }

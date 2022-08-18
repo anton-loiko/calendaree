@@ -7,7 +7,7 @@
 <div>
 
   <div>
-    <%= render partial: 'shared/avatar', locals: { src: @user.avatar, size: 'xl', admin: @user.admin } %>
+    <%= render partial: 'shared/avatar', locals: { user: @user, size: 'xl' } %>
 
     <strong>
       <%= @user.name %>
