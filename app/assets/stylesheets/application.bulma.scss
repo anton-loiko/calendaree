@@ -1,0 +1,76 @@
+@charset "utf-8";
+// Entry point for your Sass build
+
+// Mixins
+@import "mixins/media";
+
+// Configuration
+@import "config/variables";
+//@import "config/reset";
+//@import "config/fonts";
+
+// Components
+//@import "components/btn";
+@import "components/avatar";
+@import "components/error_message";
+@import "components/form";
+//@import "components/visually_hidden";
+@import "components/row";
+//@import "components/turbo_progress_bar";
+//@import "components/info";
+//@import "components/current_user";
+//@import "components/dropdown";
+
+// Layouts
+//@import "layouts/container";
+//@import "layouts/layout_container";
+//@import "layouts/nav";
+//@import "layouts/inner_page_header";
+//@import "layouts/list_header";
+
+// Users
+@import "users/users_form_new";
+
+// Other
+@import "other/sign-page";
+
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css');
+
+// Set your brand colors
+// $purple: #8A4D76;
+// $pink: #FA7C91;
+// $brown: #757763;
+// $beige-light: #D0D1CD;
+// $beige-lighter: #EFF0EB;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+// $grey-dark: $brown;
+// $grey-light: $beige-light;
+// $primary: $purple;
+// $link: $pink;
+// $widescreen-enabled: false;
+// $fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+// $body-background-color: $beige-lighter;
+// $control-border-width: 2px;
+// $input-border-color: transparent;
+// $input-shadow: none;
+
+// Import only what you need from Bulma
+// @import "bulma/sass/utilities/_all.sass";
+// @import "bulma/sass/base/_all.sass";
+// @import "bulma/sass/elements/button.sass";
+// @import "bulma/sass/elements/container.sass";
+// @import "bulma/sass/elements/title.sass";
+// @import "bulma/sass/form/_all.sass";
+// @import "bulma/sass/components/navbar.sass";
+// @import "bulma/sass/layout/hero.sass";
+// @import "bulma/sass/layout/section.sass";
+
+@import "bulma/bulma";
+

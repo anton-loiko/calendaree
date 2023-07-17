@@ -1,20 +1,67 @@
 <% if user_signed_in? %>
-  <nav class="nav">
+  <nav class="navbar is-primary is-fixed-top">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+      </div>
+      <div class="navbar-burger" data-target="navbar-target">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
 
-    <ul class="nav__list">
-      <li class="nav__item">
-        <%= link_to_unless_current("Dashboard", root_path, { action: "index" }) %>
-      </li>
-      <li class="nav__item <%= 'nav__item--active' if current_nav_link?(users_path) %>">
-        <%= link_to_unless_current("Users", users_path) %>
-      </li>
-    </ul>
+    <div id="navbar-target" class="navbar-menu">
+      <div class="navbar-start">
+        <%= link_to_unless_current("Dashboard", root_path, { action: "index", class: "navbar-item" }) %>
+        <%= link_to_unless_current("Users", users_path, { class: "navbar-item" }) %>
+      </div>
+    </div>
 
-        <%= render 'shared/current_user' %>
+    <% if current_user.present? %>
+
+      <div class="navbar-end">
+        <div class="dropdown is-right ">
+          <div class="dropdown-trigger">
+            <div class="navbar-item" aria-haspopup="true" aria-controls="dropdown-menu3">
+              <%= render partial: 'shared/avatar', locals: { user: current_user, size: 'm' } %>
+
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+            <div class="dropdown-content">
+              <div class="dropdown-item">
+                <%= current_user.name %>
+              </div>
+
+              <hr class="dropdown-divider">
+              <%= link_to "Logout", logout_path, class: 'dropdown-item g_id_signout' %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    <% end %>
+
+    <!--    <ul class="nav__list">-->
+    <!--      <li class="nav__item">-->
+    <%#= link_to_unless_current("Dashboard", root_path, { action: "index" }) %>
+    <!--      </li>-->
+    <!--      <li class="nav__item <%#= 'nav__item--active' if current_nav_link?(users_path) %>">-->
+    <%#= link_to_unless_current("Users", users_path) %>
+    <!--      </li>-->
+    <!--    </ul>-->
+
+    <%#= render 'shared/current_user' %>
 
 
-<!--    <div class="nav__logout">-->
-      <%#= link_to "Logout", logout_path, class: 'g_id_signout' %>
-<!--    </div>-->
+    <!--    <div class="nav__logout">-->
+    <%#= link_to "Logout", logout_path, class: 'g_id_signout' %>
+    <!--    </div>-->
   </nav>
 <% end %>
